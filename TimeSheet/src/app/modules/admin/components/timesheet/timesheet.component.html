@@ -1,8 +1,105 @@
 <div class="container-fluid page">
-  <div class="d-flex page__box p-3 mt-2">TimeSheet</div>
-  <div class="page__content shadow p-3 position-relative">
-    <div class="page__content-data position-absolute text-center">
-      TimeSheet Content Goes Here
+  <div class="d-flex page__box p-3 x mt-2">TimeSheet Entries</div>
+  <div class="page__content shadow position-relative">
+    <div class="p-3">
+      <div>From</div>
+      <input type="date" class="ml-3 mt-3" />
     </div>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="table-input">
+        <table class="styled-table">
+          <thead>
+            <tr class="name">
+              <th>Project Name</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Total Hr.</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <!-- <form [formGroup]="timesheets"> -->
+
+          <tbody class="active-row">
+            <tr>
+              <td>
+                <input
+                  type="string"
+                  name="project"
+                  class="Project-Name"
+                  [(ngModel)]="timesheet.projectName"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="monday"
+                  [(ngModel)]="timesheet.monday"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="tuesday"
+                  [(ngModel)]="timesheet.tuesday"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="wednesday"
+                  [(ngModel)]="timesheet.wednesday"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="thursday"
+                  [(ngModel)]="timesheet.thursday"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="friday"
+                  [(ngModel)]="timesheet.friday"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="total"
+                  [(ngModel)]="timesheet.totalHours"
+                />
+              </td>
+              <td>
+                <textarea
+                  cols="10"
+                  rows="2"
+                  type="string"
+                  name="description"
+                  [(ngModel)]="timesheet.description"
+                ></textarea>
+                <!-- <textarea name="" id="" cols="30" rows="10"> -->
+              </td>
+            </tr>
+          </tbody>
+          <!-- </form> -->
+        </table>
+        <div class="row">
+          <div class="col-xs-12">
+        
+            <button type="button" class="btn btn-primary" (click)="click()">
+              Submit
+            </button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+        
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

@@ -2,7 +2,85 @@
   <div class="d-flex page__box p-3 mt-2">Home</div>
   <div class="page__content shadow p-3 position-relative">
     <div class="page__content-data position-absolute text-center">
-      Home Content Goes Here
+      <div class="navbar">
+        <input
+          class="form-control"
+          type="text"
+          name="projectName"
+          [(ngModel)]="projectName"
+          (ngModelChange)="Search()"
+          placeholder="Enter Project Name To Search"
+        />
+      </div>
+      <div class="table-input">
+        <table class="styled-table">
+          <thead>
+            <tr class="name">
+              <th (click)="sort('p-name')">
+                Project Name&nbsp; <i class="fa fa-sort"></i>
+              </th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Total Hr.</th>
+              <th>Description</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <!-- <form [formGroup]="timesheets"> -->
+
+          <tbody
+            class="active-row"
+            *ngFor="
+              let timesheet of timesheets
+                | orderBy: key:reverse
+                | paginate: { itemsPerPage: 3, currentPage: p }
+            "
+          >
+            <tr  (click)="populateForm(timesheet)">
+              <td>
+                {{ timesheet.projectName }}
+              </td>
+              <td>
+                {{ timesheet.monday }}
+              </td>
+              <td>
+                {{ timesheet.tuesday }}
+              </td>
+              <td>
+                {{ timesheet.wednesday }}
+              </td>
+              <td>
+                {{ timesheet.thursday }}
+              </td>
+              <td>
+                {{ timesheet.friday }}
+              </td>
+              <td>
+                {{ timesheet.totalHours }}
+              </td>
+              <td>
+                {{ timesheet.description }}
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="deleteTimeSheet(timesheet.id)"
+                >
+                  <i class="fa-solid fa-trash"></i>
+
+                  
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <!-- </form> -->
+          <pagination-controls (pageChange)="p = $event " class="mt-2" ></pagination-controls>
+        </table>
+      </div>
     </div>
   </div>
 </div>

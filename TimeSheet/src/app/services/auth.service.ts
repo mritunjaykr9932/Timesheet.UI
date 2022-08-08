@@ -11,11 +11,12 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
- public currentUser: BehaviorSubject<any> = new BehaviorSubject(null);
+ public currentUser: BehaviorSubject<any> = new BehaviorSubject( null);
 
 baseUrl='https://localhost:7233/api/'
 
 jwtHelperService = new JwtHelperService();
+
 
 registerUser(user: Array<String>)
 {
@@ -29,7 +30,9 @@ registerUser(user: Array<String>)
     Pwd:user[5],
   },{
     responseType:"text",
-  });
+  }
+  
+  );
 }
 
 registerUsers()
@@ -47,8 +50,9 @@ loginUser(loginInfo:Array<string>)
   });
 }
 setToken(token: string){
-    localStorage.setItem("access_token",token);
-    this.loadCurrentUser();
+  localStorage.setItem("access_token",token);
+  
+  this.loadCurrentUser();
   }
 getToken(token:string)
   {
@@ -66,10 +70,14 @@ public loadCurrentUser()
       email:userInfo.email,
       mobile:userInfo.mobile,
       gender:userInfo.gender
-    } : null;
+    } :null;
     
-    this.currentUser.next(data);
-    console.log(this.currentUser.value);
+   
+    
+ this.currentUser.next(data?.firstname);
+    localStorage.setItem("UserData",JSON.stringify(data?.firstname));
+        console.log(this.currentUser.value);
+      
 }
 isLoggedIn():boolean{
   return localStorage.getItem("access_token") ? true : false;

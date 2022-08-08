@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
 
   loginSubmited()
   {
+    
+        // this.loginAuth.loginUser(this.loginForm.value).subscribe((data)=>{
+        // console.log(data);
     this.loginAuth.loginUser([this.loginForm.value.email,this.loginForm.value.pwd]).subscribe(res => {
         if(res=='Failure'){
           this.isUserValid=false;

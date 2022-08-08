@@ -22,3 +22,92 @@
     }
   }
 }
+.btn-danger
+{
+  margin-left: 2%;
+}
+
+input{
+  
+  font-size:large;
+
+  
+}
+.project input{
+  width: 150px;
+  border: solid rgb(198, 197, 197);
+}
+
+.date input{
+  width: 60px;
+  text-align: center;
+  border: solid gray;
+}
+
+
+table {
+  width: 96%;
+}
+.table-size
+{
+  margin:2% 5%;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+}
+.styled-table thead tr {
+    background-color: #1e293b;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #1e293b;
+}
+.table-input
+{
+  width: 105%;
+  padding: 2rem;
+  margin: auto;
+  
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+.table-input input 
+{
+  width: 50%;
+  border-radius: 10%;
+  border: none;
+  outline: none;
+  background-color: #d8d6d6;
+  font-size: medium;
+  font-weight: 400;
+  
+}
+.name
+{
+  font-size: medium;
+}
+.Project-Name
+{
+  width: 90px !important;
+}

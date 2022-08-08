@@ -4,9 +4,9 @@
     <div class="row mr-2 ml-auto">
       <ul>
         <li>
-          <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center" >
-            User Image
+          <button mat-button  [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center" >
           
+         HEY   <strong>{{ user | uppercase }}</strong>!
             <mat-icon class="user-image-icon ml-1" >keyboard_arrow_down</mat-icon>
           </button>
           <mat-menu #menu="matMenu"  >

@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule, ReactiveFormsModule,FormControl } from '@angular/forms';
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -22,6 +22,19 @@ import { MatListModule } from '@angular/material/list';
 import { AdminDashboardComponent } from './modules/admin/components/admin-dashboard/admin-dashboard.component';
 import { HeaderComponent } from './modules/admin/components/header/header.component';
 import { HomeComponent } from './modules/admin/components/home/home.component';
+import { MatRippleModule } from '@angular/material/core/ripple';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { TimesheetComponent } from './modules/admin/components/timesheet/timesheet.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table' 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgForm } from '@angular/forms';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+
+
+
 
 
 @NgModule({
@@ -35,6 +48,7 @@ import { HomeComponent } from './modules/admin/components/home/home.component';
       AdminDashboardComponent,
       HeaderComponent,
       HomeComponent,
+      TimesheetComponent
     
    ],
   imports: [
@@ -53,6 +67,15 @@ import { HomeComponent } from './modules/admin/components/home/home.component';
     MatIconModule,
     MatDividerModule,
     MatListModule,
+    MatMenuModule,
+    MatTableModule,
+    NgxPaginationModule,
+    MatPaginatorModule,
+    
+    OrderModule,
+    MatFormFieldModule,
+     MatDatepickerModule
+  
   ],
   providers: [
     AuthService

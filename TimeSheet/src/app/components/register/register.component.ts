@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 
 
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   isAccountCreated:boolean=false;
 
 
-  constructor(private authService:AuthService ) { }
+  constructor(private authService:AuthService,private router : ActivatedRoute , private routes : Router ) { }
 
   ngOnInit() {
   }
@@ -37,7 +38,12 @@ export class RegisterComponent implements OnInit {
     if(this.PWD.value==this.RPWD.value){
      
       this.repeatPass = 'none'; 
-       console.log(this.registerForm);
+     
+      //  console.log(this.registerForm.value);
+        delete this.registerForm.value.rpwd;
+        this.authService.registerUser(this.registerForm.value).subscribe((data)=>{
+        console.log(data);
+      })
 
       this.authService.registerUser([
         
@@ -51,6 +57,7 @@ export class RegisterComponent implements OnInit {
       ]).subscribe(res => {
       if(res == 'Already Exist'){
         console.log("already");
+        console.log(this.registerForm.value);
         this.displayMsg='Account Already Exist.try another Email.';
         this.isAccountCreated=false;
         
@@ -58,6 +65,7 @@ export class RegisterComponent implements OnInit {
         console.log("success");
         this.displayMsg = 'Account Created Succesfull!';
         this.isAccountCreated = true;
+        this.routes.navigate(['/Login'] );
         
        }
        else{
